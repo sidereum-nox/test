@@ -5,22 +5,13 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
-    "upload": "node scripts/upload-to-retailcrm.js",
-    "sync": "node scripts/sync-to-supabase.js",
-    "bot": "node scripts/telegram-bot.js"
+    "start": "next start"
   },
   "dependencies": {
-    "@supabase/supabase-js": "^2.43.4",
-    "dotenv": "^17.4.2",
-    "next": "^16.2.3",
+    "next": "^14.2.0",
     "react": "^18.3.0",
     "react-dom": "^18.3.0",
+    "@supabase/supabase-js": "^2.43.4",
     "recharts": "^2.12.7"
-  },
-  "devDependencies": {
-    "eslint": "^8.57.0",
-    "eslint-config-next": "^16.2.3"
   }
 }
