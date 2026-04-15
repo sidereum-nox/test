@@ -1,0 +1,26 @@
+{
+  "name": "gbc-analytics-dashboard",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "upload": "node scripts/upload-to-retailcrm.js",
+    "sync": "node scripts/sync-to-supabase.js",
+    "bot": "node scripts/telegram-bot.js"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.43.4",
+    "dotenv": "^17.4.2",
+    "next": "^16.2.3",
+    "react": "^18.3.0",
+    "react-dom": "^18.3.0",
+    "recharts": "^2.12.7"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "eslint-config-next": "^16.2.3"
+  }
+}
