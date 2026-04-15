@@ -12,89 +12,10 @@
 
 ---
 
-## Быстрый старт
 
-### 1. Клонировать репозиторий
-
-```bash
-git clone https://github.com/YOUR_USERNAME/gbc-analytics-dashboard
-cd gbc-analytics-dashboard
-npm install
-```
-
-### 2. Настроить переменные окружения
-
-Создай `.env.local`:
-
-```env
-RETAILCRM_URL=https://YOUR_DOMAIN.retailcrm.ru
-RETAILCRM_API_KEY=your_api_key
-RETAILCRM_SITE=default
-
-NEXT_PUBLIC_SUPABASE_URL=https://YOUR_PROJECT.supabase.co
-NEXT_PUBLIC_SUPABASE_ANON_KEY=your_anon_key
-SUPABASE_KEY=your_service_role_key
-
-TELEGRAM_BOT_TOKEN=your_bot_token
-TELEGRAM_CHAT_ID=your_chat_id
-```
-
-### 3. Создать таблицу в Supabase
-
-Выполни в SQL Editor на supabase.com:
-
-```sql
-CREATE TABLE IF NOT EXISTS orders (
-  id INTEGER PRIMARY KEY,
-  number TEXT,
-  first_name TEXT,
-  last_name TEXT,
-  phone TEXT,
-  email TEXT,
-  status TEXT,
-  total_sum NUMERIC,
-  city TEXT,
-  utm_source TEXT,
-  items JSONB,
-  created_at TIMESTAMPTZ,
-  synced_at TIMESTAMPTZ DEFAULT NOW()
-);
-```
-
-### 4. Загрузить заказы в RetailCRM
-
-```bash
-node scripts/upload-to-retailcrm.js
-```
-
-### 5. Синхронизировать в Supabase
-
-```bash
-node scripts/sync-to-supabase.js
-```
-
-### 6. Запустить бота
-
-```bash
-node scripts/telegram-bot.js
-```
-
-### 7. Запустить дашборд локально
-
-```bash
-npm run dev
-```
-
-### 8. Задеплоить на Vercel
-
-```bash
-npx vercel --prod
-```
-
----
 
 ## Промпты, которые использовались в Claude Code
-
+Напиши структуру
 ### Шаг 1 — Загрузка заказов в RetailCRM
 
 ```
@@ -165,18 +86,3 @@ RetailCRM вычисляет `summ` на своей стороне, но при 
 
 ---
 
-## Структура проекта
-
-```
-gbc-analytics-dashboard/
-├── mock_orders.json          # 50 тестовых заказов (из задания)
-├── package.json
-├── .env.local                # переменные окружения (не в git!)
-├── .gitignore
-├── pages/
-│   └── index.js              # дашборд Next.js
-└── scripts/
-    ├── upload-to-retailcrm.js  # загрузка заказов в RetailCRM
-    ├── sync-to-supabase.js     # синхронизация в Supabase
-    └── telegram-bot.js         # Telegram уведомления
-```
